@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Gallery from '../components/Gallery.astro';
+import Testimonials from '../components/Testimonials.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import Footer from '../components/Footer.astro';
+
+const pageTitle = "Grill Cleaning Services in Calgary | Book Now";
+const pageDescription = "Eco-friendly and professional BBQ grill cleaning services in Calgary and surrounding areas. Get a free quote today and enjoy worry-free grilling!";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- HEADER -->
+  <Header />
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <Hero />
+    <Services />
+    <Gallery />
+    <Testimonials />
+    <QuoteForm />
+  </main>
+
+  <!-- FOOTER -->
+  <Footer />
+</Layout>

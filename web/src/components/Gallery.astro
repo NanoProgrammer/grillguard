@@ -1,0 +1,101 @@
+---
+// src/components/Gallery.astro
+---
+
+<section id="gallery" class="relative py-24 bg-white overflow-hidden">
+  <!-- 🔺 Fondo diagonal suave -->
+  <div class="absolute inset-0 -z-20 bg-gradient-to-br from-white via-gray-50 to-red-50 clip-vertical"></div>
+
+  <!-- 🔥 Efecto de calor flotante -->
+  <div class="absolute -top-10 right-10 w-32 h-32 bg-red-200/20 blur-2xl rounded-full animate-pulse-glow z-0"></div>
+  <div class="absolute bottom-20 left-16 w-24 h-24 bg-orange-100/20 blur-2xl rounded-full animate-pulse-glow delay-1000"></div>
+
+  <!-- ✨ Rejilla metálica -->
+  <div class="absolute top-16 left-1/2 -translate-x-1/2 w-48 h-48 border-4 border-dashed border-primary opacity-10 rotate-12 animate-rotate-slow"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-primary mb-4 animate-fade-in">
+      Before & After: Spotless Results
+    </h2>
+    <p class="text-lg text-gray-600 mb-12 max-w-2xl animate-fade-in delay-150">
+      From greasy and forgotten to gleaming and grill-ready — swipe through real transformations from our happy Calgary clients.
+    </p>
+
+    <!-- 📸 Carrusel con efecto visor -->
+    <div class="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl border-8 border-white animate-slide-up bg-white/80 backdrop-blur-xl">
+      <div class="swiper swiper-vertical h-full">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide flex items-center justify-center px-4">
+            <div class="relative w-full max-w-xl rounded-xl overflow-hidden shadow-inner hover:scale-[1.01] transition duration-500 group">
+              <img src="/images/before1.jpg" alt="Before grill cleaning" class="rounded-lg object-cover w-full group-hover:blur-sm transition duration-500" />
+              <span class="absolute top-2 left-2 text-xs bg-black text-white px-2 py-1 rounded-full opacity-80">Before</span>
+            </div>
+          </div>
+          <div class="swiper-slide flex items-center justify-center px-4">
+            <div class="relative w-full max-w-xl rounded-xl overflow-hidden shadow-inner hover:scale-[1.01] transition duration-500 group">
+              <img src="/images/after1.jpg" alt="After grill cleaning" class="rounded-lg object-cover w-full group-hover:saturate-150 transition duration-500" />
+              <span class="absolute top-2 left-2 text-xs bg-primary text-white px-2 py-1 rounded-full opacity-90">After</span>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide flex items-center justify-center px-4">
+            <div class="relative w-full max-w-xl rounded-xl overflow-hidden shadow-inner hover:scale-[1.01] transition duration-500 group">
+              <img src="/images/before2.jpg" alt="Before cleaning grill" class="rounded-lg object-cover w-full group-hover:blur-sm transition duration-500" />
+              <span class="absolute top-2 left-2 text-xs bg-black text-white px-2 py-1 rounded-full opacity-80">Before</span>
+            </div>
+          </div>
+          <div class="swiper-slide flex items-center justify-center px-4">
+            <div class="relative w-full max-w-xl rounded-xl overflow-hidden shadow-inner hover:scale-[1.01] transition duration-500 group">
+              <img src="/images/after2.jpg" alt="After cleaning grill" class="rounded-lg object-cover w-full group-hover:saturate-150 transition duration-500" />
+              <span class="absolute top-2 left-2 text-xs bg-primary text-white px-2 py-1 rounded-full opacity-90">After</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .clip-vertical {
+      clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    .animate-pulse-glow {
+      animation: pulse-glow 6s ease-in-out infinite;
+    }
+
+    @keyframes rotate-slow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .animate-rotate-slow {
+      animation: rotate-slow 60s linear infinite;
+    }
+  </style>
+
+  <script>
+    import Swiper from 'swiper';
+    import 'swiper/css';
+
+    if (typeof window !== 'undefined') {
+      new Swiper('.swiper-vertical', {
+        direction: 'vertical',
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 30,
+        autoplay: { delay: 3500 },
+        speed: 800,
+        effect: 'fade',
+        fadeEffect: { crossFade: true },
+      });
+    }
+  </script>
+</section>

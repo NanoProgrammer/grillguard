@@ -1,0 +1,61 @@
+---
+// src/components/Header.astro
+---
+
+<header class="relative bg-white/80 backdrop-blur-xl border-b border-gray-200 shadow-md sticky top-0 z-50 transition-all duration-300 animate-fade-in">
+  <!-- Fondo decorativo animado -->
+  <div class="absolute inset-0 -z-10 pointer-events-none">
+    <div class="absolute top-0 left-1/2 w-48 h-48 bg-red-100 rounded-full blur-3xl opacity-20 animate-pulse-slow -translate-x-1/2"></div>
+    <div class="absolute top-0 right-10 w-20 h-20 bg-gray-200/40 rotate-12 clip-triangle animate-float-grid"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- LOGO / NOMBRE DE MARCA -->
+    <a href="/" class="text-2xl font-extrabold tracking-tight text-primary hover:text-red-800 transition duration-300">
+      🔥 GrillsGuard
+    </a>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="hidden md:flex gap-6 text-sm font-medium text-gray-700">
+      <a href="#services" class="hover:text-primary transition">Services</a>
+      <a href="#gallery" class="hover:text-primary transition">Gallery</a>
+      <a href="#testimonials" class="hover:text-primary transition">Reviews</a>
+      <a href="#quote" class="hover:text-primary transition">Quote</a>
+    </nav>
+
+    <!-- CTA + Email -->
+    <div class="hidden md:flex items-center gap-4">
+      <a href="mailto:grillsguard@gmail.com" class="flex items-center gap-1 text-sm text-gray-600 hover:text-primary transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M2 4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1l-10 6L2 5V4zm0 3.25v12a1.75 1.75 0 0 0 1.75 1.75h16.5A1.75 1.75 0 0 0 22 19.25v-12L12 13 2 7.25z"/>
+        </svg>
+        grillsguard@gmail.com
+      </a>
+      <a href="#quote" class="bg-primary hover:bg-red-800 text-white px-4 py-2 rounded-md text-sm font-semibold shadow transition duration-300">
+        Get a Free Quote
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+.clip-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+@keyframes float-grid {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float-grid {
+  animation: float-grid 6s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.1); }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 10s ease-in-out infinite;
+}
+</style>

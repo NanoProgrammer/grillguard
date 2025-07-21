@@ -1,0 +1,20 @@
+@import "tailwindcss";
+:root {
+    --color-primary: #b91c1c; /* rojo oscuro */
+    --color-primary-hover: #991b1b; /* rojo más oscuro al hover */
+  }
+  
+  /* Opcional: define clases de utilidad si Tailwind no reconoce `var()` en variantes como hover */
+  .btn-primary {
+    @apply bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-md shadow transition;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-[var(--color-primary-hover)] scale-[1.03] shadow-lg;
+  }
+  .bg-primary {
+    @apply bg-[var(--color-primary)];
+  }
+  .text-primary {
+    @apply text-[var(--color-primary)];
+  }

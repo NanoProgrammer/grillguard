@@ -1,0 +1,95 @@
+---
+// src/components/Testimonials.astro
+---
+
+<section id="testimonials" class="relative py-24 bg-white text-black overflow-hidden">
+  <!-- Fondo decorativo claro y diagonal -->
+  <div class="absolute inset-0 -z-10 bg-gradient-to-br from-white via-red-50 to-gray-100 clip-diagonal-soft"></div>
+
+  <!-- ✨ Destellos decorativos -->
+  <div class="absolute top-10 left-10 w-24 h-24 bg-primary/10 rounded-full blur-3xl animate-sparkle-slow"></div>
+  <div class="absolute bottom-16 right-20 w-20 h-20 border-2 border-dotted border-primary/20 rotate-45 animate-float-soft"></div>
+  <div class="absolute top-1/3 left-2/3 w-12 h-12 bg-red-100/30 rounded-full blur-xl animate-float-soft delay-2000"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-primary mb-4 animate-fade-in">
+      What Our Clients Say
+    </h2>
+    <p class="text-lg text-gray-700 mb-12 max-w-2xl animate-fade-in delay-150">
+      Honest stories from real people in Calgary who got more than just a clean grill.
+    </p>
+
+    <!-- Testimonials grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6">
+      <!-- Testimonio 1 -->
+      <div class="bg-white text-black p-6 rounded-2xl shadow-xl transform hover:scale-[1.015] transition duration-300 rotate-[-1deg] animate-slide-up">
+        <p class="text-sm mb-4">
+          “My grill looked brand new, but the real win? The flavor. My husband took one bite and said: <strong>‘This tastes like the steakhouse.’</strong> Worth it for that alone.”
+        </p>
+        <div class="flex items-center gap-3 mt-4">
+          <img src="/images/client1.jpg" alt="Client photo" class="w-10 h-10 rounded-full object-cover shadow-sm" />
+          <div>
+            <p class="font-semibold text-sm">Evan R.</p>
+            <p class="text-xs text-gray-500">NW Calgary</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonio 2 -->
+      <div class="bg-white text-black p-6 rounded-2xl shadow-xl transform hover:scale-[1.015] transition duration-300 rotate-[1deg] animate-slide-up delay-100">
+        <p class="text-sm mb-4">
+          “We grilled ribs the next day. <strong>No smoke, no flare-ups, no burnt taste</strong>. Even my picky guests noticed the difference. It just felt... cleaner.”
+        </p>
+        <div class="flex items-center gap-3 mt-4">
+          <img src="/images/client2.jpg" alt="Client photo" class="w-10 h-10 rounded-full object-cover shadow-sm" />
+          <div>
+            <p class="font-semibold text-sm">Amanda T.</p>
+            <p class="text-xs text-gray-500">Airdrie, AB</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonio 3 -->
+      <div class="bg-white text-black p-6 rounded-2xl shadow-xl transform hover:scale-[1.015] transition duration-300 rotate-[-2deg] animate-slide-up delay-200">
+        <p class="text-sm mb-4">
+          “I didn’t think it would change much, but <strong>my kids asked for seconds</strong>. No black smoke, no weird smells. Just real BBQ flavor. I’m never skipping this again.”
+        </p>
+        <div class="flex items-center gap-3 mt-4">
+          <img src="/images/client3.jpg" alt="Client photo" class="w-10 h-10 rounded-full object-cover shadow-sm" />
+          <div>
+            <p class="font-semibold text-sm">Lucas M.</p>
+            <p class="text-xs text-gray-500">SE Calgary</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .clip-diagonal-soft {
+      clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+    }
+
+    @keyframes sparkle-slow {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.15); }
+    }
+
+    @keyframes float-soft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .animate-sparkle-slow {
+      animation: sparkle-slow 8s ease-in-out infinite;
+    }
+
+    .animate-float-soft {
+      animation: float-soft 6s ease-in-out infinite;
+    }
+
+    .delay-2000 {
+      animation-delay: 2s;
+    }
+  </style>
+</section>

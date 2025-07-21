@@ -1,0 +1,82 @@
+---
+// src/components/Services.astro
+---
+
+<section id="services" class="relative py-24 bg-gray-50 overflow-hidden">
+  <!-- Fondo diagonal decorativo -->
+  <div class="absolute inset-0 -z-20 bg-white clip-skewed"></div>
+
+  <!-- ✨ Figuras decorativas -->
+  <div class="absolute top-10 left-10 w-24 h-24 border-4 border-dashed border-primary opacity-20 rotate-[15deg] animate-float-grid"></div>
+  <div class="absolute top-32 right-32 w-16 h-16 border-2 border-dotted border-gray-400 opacity-30 rotate-[30deg] animate-float-grid delay-1000"></div>
+  <div class="absolute bottom-12 left-1/3 w-32 h-32 bg-red-100 rounded-full blur-2xl opacity-20 animate-sparkle"></div>
+  <div class="absolute -bottom-16 right-1/4 w-[300px] h-[300px] bg-primary/10 rounded-full blur-3xl animate-flame-glow"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-primary mb-4 animate-fade-in">
+      What We Do Best
+    </h2>
+    <p class="text-lg text-gray-600 mb-12 max-w-2xl animate-fade-in delay-150">
+      We deep clean premium grills so your BBQ delivers richer flavor, fewer flare-ups, and that satisfying sizzle — every time.
+    </p>
+
+    <div class="grid gap-8 md:grid-cols-3">
+      <!-- Servicio 1 -->
+      <div class="bg-white transform skew-y-2 hover:skew-y-0 transition-all duration-300 shadow-xl rounded-xl p-6 animate-slide-up">
+        <div class="text-4xl mb-4 text-primary">🔥</div>
+        <h3 class="text-xl font-bold mb-2">Full Grill Degreasing</h3>
+        <p class="text-gray-600 text-sm">
+          Say goodbye to burnt buildup. We remove layers of grease, smoke residue, and carbon so your grill performs — and tastes — like new.
+        </p>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="bg-white transform skew-y-2 hover:skew-y-0 transition-all duration-300 shadow-xl rounded-xl p-6 animate-slide-up delay-100">
+        <div class="text-4xl mb-4 text-primary">🧽</div>
+        <h3 class="text-xl font-bold mb-2">Grates & Burner Detailing</h3>
+        <p class="text-gray-600 text-sm">
+          We polish every grate and inspect your burners to ensure even heat, no flare-ups, and perfect grill marks every time.
+        </p>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div class="bg-white transform skew-y-2 hover:skew-y-0 transition-all duration-300 shadow-xl rounded-xl p-6 animate-slide-up delay-200">
+        <div class="text-4xl mb-4 text-primary">🧯</div>
+        <h3 class="text-xl font-bold mb-2">Firebox & Drip Tray Reset</h3>
+        <p class="text-gray-600 text-sm">
+          We flush the firebox and clean the tray to eliminate odors, prevent fires, and keep your grill safe and spotless inside out.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.clip-skewed {
+  clip-path: polygon(0 0, 100% 2%, 100% 100%, 0% 98%);
+}
+
+@keyframes float-grid {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float-grid {
+  animation: float-grid 6s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.1); }
+}
+.animate-sparkle {
+  animation: sparkle 8s ease-in-out infinite;
+}
+
+@keyframes flame-glow {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.2); opacity: 0.6; }
+}
+.animate-flame-glow {
+  animation: flame-glow 5s ease-in-out infinite;
+}
+</style>
