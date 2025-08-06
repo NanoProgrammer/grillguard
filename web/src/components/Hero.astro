@@ -1,22 +1,31 @@
+---
+const verticalSlides = [
+  { src: "/images/before1.avif", alt: "Before grill cleaning" },
+  { src: "/images/after1.webp", alt: "After grill cleaning" },
+  { src: "/images/before2.webp", alt: "Before cleaning grill" },
+  { src: "/images/after2.avif", alt: "After cleaning grill" },
+];
+---
+
 <section class="relative bg-white overflow-hidden py-24">
-  <!-- Fondo diagonal y decorativo -->
+  <!-- Fondo diagonal -->
   <div class="absolute inset-0 -z-20 clip-diagonal bg-gradient-to-tr from-white via-red-50 to-gray-100"></div>
 
   <!-- 🔥 Flamas animadas -->
   <div class="absolute -bottom-12 left-1/2 w-[300px] h-[300px] -translate-x-1/2 bg-red-500/20 rounded-full blur-3xl animate-flame-glow z-0"></div>
 
-  <!-- 🧼 Grasa flotante estilo rejilla -->
-  <div class="absolute top-16 right-16 w-32 h-32 border-4 border-dashed border-primary rotate-[15deg] opacity-30 animate-float-grid"></div>
-  <div class="absolute top-36 right-48 w-20 h-20 border-2 border-dotted border-gray-400 rotate-[25deg] opacity-20 animate-float-grid delay-2000"></div>
+  <!-- 🧼 Cuadro decorativo detrás del texto -->
+  <div class="absolute top-24 left-8 w-40 h-40 border-4 border-dashed border-primary rotate-[15deg] opacity-30 animate-float-grid z-0"></div>
+  <div class="absolute top-56 left-28 w-24 h-24 border-2 border-dotted border-gray-400 rotate-[25deg] opacity-20 animate-float-grid delay-2000 z-0"></div>
 
   <!-- ✨ Brillo metálico -->
   <div class="absolute left-10 top-20 w-32 h-32 bg-gradient-to-br from-white/30 via-white/10 to-transparent rounded-full blur-xl animate-sparkle"></div>
 
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center relative z-10">
     <!-- Texto -->
-    <div class="animate-fade-in">
+    <div class="animate-fade-in relative z-10">
       <h1 class="text-4xl sm:text-5xl font-extrabold text-primary mb-6 leading-tight animate-slide-up">
-        Your BBQ Should Taste as Good as It Looks 
+        Your BBQ Should Taste as Good as It Looks
       </h1>
       <p class="text-gray-700 text-lg mb-8 max-w-md animate-fade-in delay-150">
         We restore high-end grills across Calgary & Airdrie, so you can enjoy steakhouse flavor at home — without the scrubbing. Get back your weekends and impress every guest.
@@ -26,20 +35,26 @@
       </a>
     </div>
 
-    <!-- Carrusel o imagen decorativa -->
-    <div class="relative w-full h-96 animate-slide-up delay-200">
-      <div class="absolute inset-0 flex items-center justify-center border-2 border-dashed border-primary rounded-lg text-center text-sm text-gray-500 bg-white/50 backdrop-blur-sm">
-        Carousel Placeholder (Before/After)
+    <!-- Carrusel vertical automático -->
+    <div class="relative w-full h-[32rem] bottom-16 overflow-hidden rounded-lg shadow-lg animate-slide-up delay-200">
+      <div class="vertical-carousel absolute top-0 left-0 w-full flex flex-col">
+        {verticalSlides.concat(verticalSlides).map((img) => (
+          <div class="flex-shrink-0 h-1/2 p-2">
+            <img src={img.src} alt={img.alt} class="w-full h-full object-cover rounded-lg" />
+          </div>
+        ))}
       </div>
     </div>
   </div>
 </section>
 
 <style>
+/* Recorte diagonal del fondo */
 .clip-diagonal {
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
 }
 
+/* 🔥 Flamas animadas */
 @keyframes flame-glow {
   0%, 100% { transform: scale(1); opacity: 0.4; }
   50% { transform: scale(1.2); opacity: 0.6; }
@@ -48,6 +63,7 @@
   animation: flame-glow 4s ease-in-out infinite;
 }
 
+/* 🧼 Flotación rejilla */
 @keyframes float-grid {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -56,6 +72,7 @@
   animation: float-grid 6s ease-in-out infinite;
 }
 
+/* ✨ Brillo metálico */
 @keyframes sparkle {
   0%, 100% { opacity: 0.1; transform: scale(1); }
   50% { opacity: 0.3; transform: scale(1.1); }
@@ -64,12 +81,12 @@
   animation: sparkle 8s ease-in-out infinite;
 }
 
-@keyframes bounce-in {
-  0% { transform: scale(0.95); opacity: 0; }
-  60% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1); }
+/* 🎞 Carrusel vertical automático */
+.vertical-carousel {
+  animation: vertical-loop 12s linear infinite;
 }
-.animate-bounce-in {
-  animation: bounce-in 0.6s ease-out both;
+@keyframes vertical-loop {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); } /* Mueve la mitad del track duplicado */
 }
 </style>
