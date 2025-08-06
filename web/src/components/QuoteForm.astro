@@ -1,15 +1,13 @@
 ---
-// src/components/QuoteForm.astro
+const redirectUrl = "/thank-you"; // Página a mostrar después de enviar
 ---
 
 <section id="quote" class="relative bg-white py-24 px-6 overflow-hidden">
-  <!-- Fondo decorativo con efecto calor y burbujas -->
+  <!-- Fondo decorativo -->
   <div class="absolute inset-0 -z-10 bg-gradient-to-br from-white via-red-50 to-gray-100 clip-curve"></div>
 
-  <!-- 🔥 Brillo animado tipo flama -->
+  <!-- Animaciones -->
   <div class="absolute -bottom-12 left-1/2 w-[280px] h-[280px] -translate-x-1/2 bg-red-500/10 rounded-full blur-3xl animate-flame-glow"></div>
-
-  <!-- 🫧 Burbujas decorativas -->
   <div class="absolute top-16 right-12 w-16 h-16 border-4 border-dotted border-primary/30 rounded-full animate-bubble-float"></div>
   <div class="absolute bottom-20 left-12 w-24 h-24 border-2 border-dashed border-primary/20 rotate-[20deg] rounded-full animate-bubble-float delay-2000"></div>
   <div class="absolute top-1/2 left-[60%] w-12 h-12 bg-red-100/20 rounded-full blur-xl animate-pulse-slow"></div>
@@ -23,27 +21,33 @@
       Ready for a spotless grill? Fill out the form and we’ll get back to you within 24 hours.
     </p>
 
-    <form 
-    name="quote" 
-  method="POST" 
-  data-netlify="true"
-  class="space-y-6 text-left animate-slide-up bg-white/90 backdrop-blur-lg p-6 rounded-xl shadow-2xl"><input type="hidden" name="form-name" value="quote" />
+    <!-- Formulario Netlify -->
+    <form
+      name="quote"
+      method="POST"
+      data-netlify="true"
+      action={redirectUrl}
+      class="space-y-6 text-left animate-slide-up bg-white/90 backdrop-blur-lg p-6 rounded-xl shadow-2xl"
+    >
+      <!-- Campo oculto obligatorio -->
+      <input type="hidden" name="form-name" value="quote" />
+
       <!-- Name -->
       <div>
         <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your full name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" required />
+        <input type="text" id="name" name="name" placeholder="Your full name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" />
       </div>
 
       <!-- Email -->
       <div>
         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-        <input type="email" id="email" name="email" placeholder="your@email.com" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" required />
+        <input type="email" id="email" name="email" placeholder="your@email.com" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" />
       </div>
 
       <!-- Phone -->
       <div>
         <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
-        <input type="tel" id="phone" name="phone" placeholder="(403) 123-4567" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" required />
+        <input type="tel" id="phone" name="phone" placeholder="(403) 123-4567" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" />
       </div>
 
       <!-- Message -->
@@ -65,47 +69,28 @@
     .clip-curve {
       clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
     }
-
     @keyframes flame-glow {
       0%, 100% { opacity: 0.3; transform: scale(1); }
       50% { opacity: 0.6; transform: scale(1.2); }
     }
-
     @keyframes bubble-float {
       0% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
       100% { transform: translateY(0); }
     }
-
     @keyframes pulse-slow {
       0%, 100% { transform: scale(1); opacity: 0.1; }
       50% { transform: scale(1.15); opacity: 0.25; }
     }
-
     @keyframes bounce-in {
       0% { transform: scale(0.9); opacity: 0; }
       60% { transform: scale(1.05); opacity: 1; }
       100% { transform: scale(1); }
     }
-
-    .animate-flame-glow {
-      animation: flame-glow 4s ease-in-out infinite;
-    }
-
-    .animate-bubble-float {
-      animation: bubble-float 7s ease-in-out infinite;
-    }
-
-    .animate-pulse-slow {
-      animation: pulse-slow 8s ease-in-out infinite;
-    }
-
-    .animate-bounce-in {
-      animation: bounce-in 0.6s ease-out both;
-    }
-
-    .delay-2000 {
-      animation-delay: 2s;
-    }
+    .animate-flame-glow { animation: flame-glow 4s ease-in-out infinite; }
+    .animate-bubble-float { animation: bubble-float 7s ease-in-out infinite; }
+    .animate-pulse-slow { animation: pulse-slow 8s ease-in-out infinite; }
+    .animate-bounce-in { animation: bounce-in 0.6s ease-out both; }
+    .delay-2000 { animation-delay: 2s; }
   </style>
 </section>

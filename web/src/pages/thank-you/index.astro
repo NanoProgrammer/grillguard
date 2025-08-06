@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const pageTitle = "Thank You | Grill Cleaning Services";
+const pageDescription = "Thanks for your request! We'll get back to you within 24 hours.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- HEADER -->
+  <Header />
+
+  <!-- MAIN CONTENT -->
+  <main class="min-h-screen flex flex-col items-center justify-center bg-white text-center px-6">
+    <h1 class="text-4xl font-bold text-primary mb-4">Thank you! 🎉</h1>
+    <p class="text-lg text-gray-700 max-w-lg">
+      We’ve received your quote request and will get back to you within 24 hours.
+    </p>
+    <a
+      href="/"
+      class="mt-8 inline-block bg-primary hover:bg-red-800 text-white px-6 py-3 rounded-md font-semibold transition-colors duration-300"
+    >
+      Back to Home
+    </a>
+  </main>
+
+  <!-- FOOTER -->
+  <Footer />
+</Layout>
