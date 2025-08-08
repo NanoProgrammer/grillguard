@@ -23,14 +23,14 @@ const redirectUrl = "/thank-you"; // Página a mostrar después de enviar
 
     <!-- Formulario Netlify -->
     <form
-      name="quote"
-      method="POST"
-      data-netlify="true"
-      action={redirectUrl}
-      class="space-y-6 text-left animate-slide-up bg-white/90 backdrop-blur-lg p-6 rounded-xl shadow-2xl"
-    >
-      <!-- Campo oculto obligatorio -->
-      <input type="hidden" name="form-name" value="quote" />
+  name="quote"
+  method="POST"
+  data-netlify="true"
+  action={redirectUrl}
+  class="space-y-6 text-left animate-slide-up bg-white/90 backdrop-blur-lg p-6 rounded-xl shadow-2xl"
+>
+  <input type="hidden" name="form-name" value="quote" />
+
 
       <!-- Name -->
       <div>
